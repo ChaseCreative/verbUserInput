@@ -1,0 +1,914 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+#backBox {
+  float:left;
+
+  margin-top: 50px;
+
+  text-align: center;
+
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding: 5px;
+  background-color: blue;
+  color:white;
+}
+
+#timer{
+  float:right;
+  margin-top:20px;
+  margin-right:5%;
+text-align: center;
+
+  font-size: 150%;
+  width: 100px;
+  height: 100px;
+  border: 4px solid black;
+  border-radius: 75px;
+
+  padding-top: 5px;
+  background-color: orange;
+  color:white;
+
+}
+
+
+.label{
+
+  margin:auto;
+
+  text-align:center;
+
+  font-size: 150%;
+  width: 25%;
+  height:40px;
+}
+
+  #labelBox {
+    float:right;
+    text-align: center;
+
+    border: 2px solid black;
+    border-radius: 25px;
+
+    padding: 5px;
+    background-color: white;
+    color:black;
+}
+
+#myText {
+
+  float: clear;
+  margin:auto;
+  margin-top: 20px;
+  text-align: center;
+  background-color: blue;
+  color: white;
+
+
+  font-size: 150%;
+  width: 25%;
+  height:75px;
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding-top: 5px ;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: white;
+  border: 4px solid black;
+  text-align: center;
+  border-radius: 25px;
+  color: black;
+  display: none;
+  margin-top: 10px;
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: yellow;
+  border: 4px solid black;
+  border-radius: 25px;
+}
+
+
+
+.test{
+  margin:auto;
+margin-top: 20px;
+  text-align:center;
+
+
+  font-size: 150%;
+  width: 25%;
+  height:100px;
+
+}
+
+
+.center {
+  float:clear;
+  margin:auto;
+  width:50%;
+  margin-top: 30px;
+
+  text-align: center;
+
+
+
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding: 40px;
+  background-color: red;
+  color:white;
+
+}
+
+.centerDiv {
+  float:clear;
+  margin:auto;
+  width:10%;
+
+  width: 150px;
+  height: 150px;
+  border: 4px solid blue;
+  border-radius: 125px;
+}
+
+
+.imgbox {
+
+  float:clear;
+  margin:auto;
+  width:10%;
+  margin-top: 20px;
+  margin-bottom: 10px
+
+
+  text-align: center;
+  font-size: 150%;
+  width: 150px;
+  height: 150px;
+  border: 4px solid black;
+  border-radius: 125px;
+
+  background-color: yellow;
+  color: black;
+
+  padding: 6px;
+
+
+}
+
+
+
+
+
+.imgbox2 {
+
+  float: clear;
+  margin:auto;
+  margin-top:90px;
+  text-align: center;
+  background-color: black;
+  color: white;
+
+
+  font-size: 150%;
+  width: 25%;
+  height:200px;
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding-top: 36px ;
+}
+
+.imgbox3 {
+
+  float: clear;
+  margin:auto;
+  margin-top: 20px;
+  text-align: center;
+  background-color: red;
+  color: white;
+
+
+  font-size: 150%;
+  width: 25%;
+  height:200px;
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding-top: 36px ;
+}
+
+
+
+.body {
+  background-color: grey;
+}
+
+
+
+</style>
+</head>
+
+
+<body class = "body">
+
+  <div >
+    <button  id = "backBox"  onclick="restartGame()"><--BACK!</button>
+    <button id = "timer" disabled>Timer</button>
+    <h1 id = "title" class="center">Randomizer - Verbs for Nerds!</h1>
+    <br>
+    </div>
+
+    <div id="myProgress">
+      <div id="myBar">Progress Bar</div>
+    </div>
+
+
+<input type="text" id = "myText" type = "submit" value = "Answer here!">
+
+    <p class="test">
+    <button class = "imgbox" id = "box1"   onclick="startGame()">Start!</button>
+
+    <button class = "imgbox" id = "box2"  onclick="checkAnswer()">Click for Trick!</button>
+    </p>
+
+  <p class = "imgbox2" id="latin"></p>
+
+  <p class = "imgbox3" id="trans"></p>
+
+
+
+<!--
+  <div >
+    <button  id = "backBox"  onclick="restartGame()"><--BACK!</button>
+    <button id = "timer" disabled>Timer</button>
+    <h1 class="center">Quick Tricklation – Stage 1!</h1>
+    <br>
+    </div>
+
+
+
+<div id="myProgress">
+  <div id="myBar">Progress Bar</div>
+</div>
+
+
+
+<p class="test">
+<button class = "imgbox" id = "box1"   onclick="startGame()">Start!</button>
+
+<button class = "imgbox" id = "box2"  onclick="giveAnswerOne()">Click for Trick!</button>
+</p>
+
+<p class = "imgbox2" id="latin"></p>
+
+<p class = "imgbox3" id="trans"></p>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+
+
+Name: <input type="text" id="myText" >
+
+
+
+<p>Click the button to change the value of the text field.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+
+
+
+function myFunction() {
+var x = document.getElementById("myText").value;
+  document.getElementById("myText").value = "I like " + x;
+}
+
+console.log(x)
+</script>
+
+</body>
+</html>
+
+
+-->
+
+<script>
+
+var score = 1
+//This resets all of the verbs and personal endings
+function reset (){
+
+  //var verb = [["amo", "I love"],["amas", "you love"],["amat", "he loves"],["amamus", "we love"],["amatis", "ya'll love"],["amant", "they love"]];
+
+
+  stem = [["am","ama","love", "loves", "loving"],["d","da","give", "gives","giving"],["labor","labora","work", "works","working"],["vide","vide","see", "sees", "seeing"]];
+  ranStemIndx = Math.floor(Math.random() * stem.length);
+
+  pro = ["he", "she", "it"];
+  proIndx = Math.floor(Math.random() * pro.length);
+
+
+  perEnd = [["o","I"],["s","you"],["t", pro[proIndx]],["mus","we"],["tis","ya'll"],["nt","they"]];
+
+
+  perEndImp = [["bam","I was"],["bas","you were"],["bat", pro[proIndx] + " was "],["bamus","we were"],["batis","ya'll were"],["bant","they were"]];
+
+  ranPerEndImpIndx = Math.floor(Math.random() * perEndImp.length);
+
+  verbEng = {
+    firstSing: perEnd[0][1] + " " + stem[ranStemIndx][2],
+    secondSing: perEnd[1][1] + " " + stem[ranStemIndx][2],
+    thirdSing: perEnd[2][1] + " " + stem[ranStemIndx][3],
+    firstPl: perEnd[3][1] + " " + stem[ranStemIndx][2],
+    secondPl: perEnd[4][1] + " " + stem[ranStemIndx][2],
+    thirdPl: perEnd[5][1] + " " + stem[ranStemIndx][2]
+  };
+
+  ranVerbEng = [verbEng.firstSing, verbEng.secondSing, verbEng.thirdSing, verbEng.firstPl, verbEng.secondPl, verbEng.thirdPl];
+  //ranIndx = Math.floor(Math.random() * ranVerbEng.length);
+
+  // Create an object:
+
+  verbLat = {
+    firstSing: stem[ranStemIndx][0] + perEnd[0][0],
+    secondSing: stem[ranStemIndx][1] + perEnd[1][0],
+    thirdSing: stem[ranStemIndx][1] + perEnd[2][0],
+    firstPl: stem[ranStemIndx][1] + perEnd[3][0],
+    secondPl: stem[ranStemIndx][1] + perEnd[4][0],
+    thirdPl: stem[ranStemIndx][1] + perEnd[5][0]
+  };
+
+  ranVerbLat = [verbLat.firstSing, verbLat.secondSing, verbLat.thirdSing, verbLat.firstPl, verbLat.secondPl, verbLat.thirdPl];
+
+
+
+verbImpEng = {
+  firstSing: perEndImp[0][1] + " " + stem[ranStemIndx][4],
+  secondSing: perEndImp[1][1] + " " + stem[ranStemIndx][4],
+  thirdSing: perEndImp[2][1] + " " + stem[ranStemIndx][4],
+  firstPl: perEndImp[3][1] + " " + stem[ranStemIndx][4],
+  secondPl: perEndImp[4][1] + " " + stem[ranStemIndx][4],
+  thirdPl: perEndImp[5][1] + " " + stem[ranStemIndx][4]
+};
+
+ranVerbImpEng = [verbImpEng.firstSing, verbImpEng.secondSing, verbImpEng.thirdSing, verbImpEng.firstPl, verbImpEng.secondPl, verbImpEng.thirdPl];
+
+// Create an object:
+
+verbImpLat = {
+  firstSing: stem[ranStemIndx][1] + perEndImp[0][0],
+  secondSing: stem[ranStemIndx][1] + perEndImp[1][0],
+  thirdSing: stem[ranStemIndx][1] + perEndImp[2][0],
+  firstPl: stem[ranStemIndx][1] + perEndImp[3][0],
+  secondPl: stem[ranStemIndx][1] + perEndImp[4][0],
+  thirdPl: stem[ranStemIndx][1] + perEndImp[5][0]
+};
+
+
+
+
+ranVerbImpLat = [verbImpLat.firstSing, verbImpLat.secondSing, verbImpLat.thirdSing, verbImpLat.firstPl, verbImpLat.secondPl, verbImpLat.thirdPl];
+
+ranVerbEng = [verbEng.firstSing, verbEng.secondSing, verbEng.thirdSing, verbEng.firstPl, verbEng.secondPl, verbEng.thirdPl,verbImpEng.firstSing, verbImpEng.secondSing, verbImpEng.thirdSing, verbImpEng.firstPl, verbImpEng.secondPl, verbImpEng.thirdPl];
+ranVerbLat = [verbLat.firstSing, verbLat.secondSing, verbLat.thirdSing, verbLat.firstPl, verbLat.secondPl, verbLat.thirdPl,verbImpLat.firstSing, verbImpLat.secondSing, verbImpLat.thirdSing, verbImpLat.firstPl, verbImpLat.secondPl, verbImpLat.thirdPl];
+ranIndx = Math.floor(Math.random() * ranVerbEng.length);
+
+
+//This sets the length of the progress bar movement at twice the length of the array
+movLength = 10;
+
+}
+
+
+/*
+var customerName = prompt("Please enter your name", "<name goes here>");
+
+
+
+if (customerName!= null) {
+
+    document.getElementById("title").innerHTML =
+
+    "Hello, " + customerName + "! How are you today?";
+}
+*/
+
+reset();
+
+
+function startGame(){
+unHideAnswer();
+document.getElementById("myText").value = "Answer here!";
+document.getElementById("latin").innerHTML = ranVerbLat[ranIndx];
+//document.getElementById("latin").innerHTML = "amo";
+  countdown = setInterval(countDownTimer,1000);
+
+
+
+  document.getElementById("title").innerHTML = "How do you translate \"" + ranVerbLat[ranIndx] + "\"?";
+hideBox1();
+unHideBox2();
+unHideAnswer();
+unHideBackBox();
+unHideTimer();
+
+document.getElementById("trans").innerHTML = "";
+
+movLength = 10;
+
+//move();
+
+}
+
+
+
+function checkAnswer() {
+  //var answer = prompt("How do you translate amo?", "<answer goes here>");
+  //var answer = document.getElementById("myText").value;
+  //console.log(answer);
+
+  //document.getElementById("latin").innerHTML = "amo";
+  //answer = document.getElementById("myText").value;
+
+
+
+  unHideDemo();
+  unHideDemo2();
+  stopTimer();
+
+  var answer = document.getElementById("myText").value;
+  console.log(answer);
+  document.getElementById("trans").innerHTML = answer;
+
+
+  if (answer == ranVerbEng[ranIndx]) {
+
+    document.getElementById("title").innerHTML = "Bene!"
+    document.getElementById("myBar").innerHTML = "Progess Bar Score: " + score;
+    score++
+    move();
+  } else {
+    document.getElementById("title").innerHTML = "Oops! The answer was \"" + ranVerbEng[ranIndx] + "\"?";
+  }
+
+  hideBox2();
+  unHideBox1();
+  document.getElementById("box1").innerHTML = "Next!"
+
+  if (count == 10){
+      document.getElementById("title").innerHTML = "You scored " + score + " out of 10!";
+      document.getElementById("latin").innerHTML = "Finis!";
+      document.getElementById("trans").innerHTML = "Let's go again!"
+      document.getElementById("box1").innerHTML = "Start";
+      document.getElementById("box1").style.background = "blue";
+      document.getElementById("box1").style.color = "white";
+      document.getElementById("myBar").style.width =0;
+      document.getElementById("myBar").innerHTML = "Progess Bar";
+      count = 0;
+      score = 1;
+      width = 0;
+  }
+  count++;
+  reset();
+  //document.getElementById("myText").value = "";
+  hideAnswer()
+}
+
+/*
+prompt("What is your name?");
+
+var userName = prompt("What is your name?");
+
+console.log(userName);
+
+document.getElementById("title").innerHTML = "Welcome, " + userName + "!"
+*/
+
+
+//Timer variables
+//This sets the countdown at 15 sections
+var timeleft = 15;
+var countdown = setInterval(countDownTimer,1000);
+
+function countDownTimer(){
+
+document.getElementById("timer").style.color = "white";
+		document.getElementById("timer").innerHTML = timeleft;
+  		timeleft -= 1;
+  			if(timeleft <= 0)  {
+    			clearInterval(countdown);
+    			document.getElementById("timer").innerHTML = "Time's Up!";
+					document.getElementById("timer").style.color = "black";
+  }
+
+}
+
+//This stops the timer and resets it to 15 seconds
+function stopTimer() {
+
+  clearInterval(countdown);
+  document.getElementById("timer").innerHTML = "Timer";
+timeleft = 15;
+
+}
+
+stopTimer();
+
+
+
+
+/*
+Checklist for adding Progress Bar:
+1. Change head, style and body.
+2. Insert the movLength in the function resetSentence(); (through 149 and then change title at 194)
+3. Insert function restartGame() and the following lines of code through unHideProgressBar(); (355-403)
+4. Insert in function startGame():
+     unHideBackBox();
+     document.getElementById("box1").innerHTML = "Next!";
+     document.getElementById("box1").style.color = "black";
+5. Insert "move();" in the function giveAnswerOne();
+6. Change the count arry in the function giveAnswerOne() at if (count == 20)
+*/
+
+
+//This sets the width for the progress bar called "myBar"
+var width = 0;
+
+//This sets the length of each movement of the Progess Bar on a button click
+var movLength = 0;
+
+//This increases the Progress Bar on each button click
+function move() {
+//This displays the Progress Bar total length of 100%
+document.getElementById("myProgress").style.display = "block" ;
+
+//The displays the progress made on each button click
+var bar = document.getElementById("myBar");
+
+      if (width >= 100) {
+        bar.style.width = 0;
+      } else {
+        width += movLength;
+        bar.style.width = width + "%";
+
+      }
+    }
+
+
+
+
+
+
+
+
+/*
+
+var ranSentenceIndx = Math.floor(Math.random() * 2);
+
+var nouns = [["furcifer", "thief"],["pestis", "pest"],["pater","father"],["mater","mother"],["filius","son"],["servus","slave"],["coquus","cook"],["canis","dog"]];
+var ranNounsIndx = Math.floor(Math.random() * nouns.length);
+
+
+var prepPhrase = [["in tablinō","in the study"],["in tricliniō","in the dining room"],["in peristyliō","in the courtyard"],["in culinā","in the kitchen"],["in hortō","in the garden"],["in viā","in the road"],["in atriō","in the main hall"],["in compluviō","on the roof opening"],["in impluviō","in the pool"],["in latrinā","in the bathroom"]];
+ranPrepPhraseIndx = Math.floor(Math.random() * prepPhrase.length);
+
+
+var areas = [["ianua", "door"],["insula", "apartment building"],["cubiculum", "bedroom"],["peristylium", "outdoor courtyard"],["latrina", "bathroom"],["lararium", "shrine"],["impluvium", "shallow pool"],["compluvium", "roof opening"],["via", "road"],["culina", "kitchen"],["hortus", "garden"],["tablinum", "study"],["atrium", "entrance hall"],["triclinium", "dining hall"]];
+ranAreasIndx = Math.floor(Math.random() * areas.length);
+
+
+var adjective = [["iratus", "angry"]];
+var ranAdjectiveIndx = Math.floor(Math.random() * adjective.length);
+
+var verb = [["exit", "goes out"],["surgit", "gets up"],["stertit", "snores"],["salit", "jumps"],["clamat", "shouts"],["latrat", "barks"],["stat", "stands"],["circumspectat", "looks around"],["dormit", "sleeps"],["laborat", "works"],["scribit", "writes"],["bibit", "drinks"],["sedet", "sits"]];
+var ranVerbIndx = Math.floor(Math.random() * verb.length);
+
+var linkingVerb = [["est", "is"]];
+var ranLinkingVerbIndx = Math.floor(Math.random() * linkingVerb.length);
+
+
+class Latin {
+  constructor (subject,prepPhrase,verb,areas,linkingVerb){
+  this.subject = subject;
+  this.prepPhrase = prepPhrase;
+  this.verb = verb;
+  this.areas = areas;
+  this.linkingVerb = linkingVerb;
+}
+}
+
+class Translation {
+  constructor (subject, verb, prepPhrase,areas, linkingVerb){
+    this.subject = subject;
+    this.prepPhrase = prepPhrase;
+    this.verb = verb;
+    this.areas = areas;
+    this.linkingVerb = linkingVerb;
+  }
+}
+
+
+
+
+myLatinSentence = new Latin(nouns[ranNounsIndx][0], prepPhrase[ranPrepPhraseIndx][0], verb[ranVerbIndx][0],areas[ranAreasIndx][0],linkingVerb[ranLinkingVerbIndx][0]);
+myTranslation = new Translation(nouns[ranNounsIndx][1], verb[ranVerbIndx][1], prepPhrase[ranPrepPhraseIndx][1],areas[ranAreasIndx][1],linkingVerb[ranLinkingVerbIndx][1]);
+
+
+function resetSentence(){
+
+  ranSentenceIndx = Math.floor(Math.random() * 2);
+
+  nouns = [["furcifer", "thief"],["pestis", "pest"],["pater","father"],["mater","mother"],["filius","son"],["servus","slave"],["iratus servus","angry slave"],["coquus","cook"],["canis","dog"]];
+  ranNounsIndx = Math.floor(Math.random() * nouns.length);
+
+  prepPhrase = [["in tablinō","in the study"],["in tricliniō","in the dining room"],["in peristyliō","in the courtyard"],["in culinā","in the kitchen"],["in hortō","in the garden"],["in viā","in the road"],["in atriō","in the main hall"],["in compluviō","on the roof opening"],["in impluviō","in the pool"],["in latrinā","in the bathroom"]];
+  ranPrepPhraseIndx = Math.floor(Math.random() * prepPhrase.length);
+
+
+  areas = [["ianua", "door"],["insula", "apartment building"],["cubiculum", "bedroom"],["peristylium", "outdoor courtyard"],["latrina", "bathroom"],["lararium", "shrine"],["impluvium", "shallow pool"],["compluvium", "roof opening"],["via", "road"],["culina", "kitchen"],["hortus", "garden"],["tablinum", "study"],["atrium", "entrance hall"],["triclinium", "dining hall"]];
+  ranAreasIndx = Math.floor(Math.random() * areas.length);
+
+  adjective = [["iratus", "angry"]];
+  ranAdjectiveIndx = Math.floor(Math.random() * adjective.length);
+
+  verb = [["exit", "goes out"],["surgit", "gets up"],["stertit", "snores"],["salit", "jumps"],["clamat", "shouts"],["latrat", "barks"],["stat", "stands"],["circumspectat", "looks around"],["intrat", "enters"],["dormit", "sleeps"],["laborat", "works"],["scribit", "writes"],["bibit", "drinks"],["sedet", "sits"]];
+  ranVerbIndx = Math.floor(Math.random() * verb.length);
+
+  linkingVerb = [["est", "is"]];
+  ranLinkingVerbIndx = Math.floor(Math.random() * linkingVerb.length);
+
+
+  class Latin {
+    constructor (subject,prepPhrase,verb,areas,linkingVerb){
+    this.subject = subject;
+    this.prepPhrase = prepPhrase;
+    this.verb = verb;
+    this.areas = areas;
+    this.linkingVerb = linkingVerb;
+  }
+  }
+
+  class Translation {
+    constructor (subject, verb, prepPhrase,areas, linkingVerb){
+      this.subject = subject;
+      this.prepPhrase = prepPhrase;
+      this.verb = verb;
+      this.areas = areas;
+      this.linkingVerb = linkingVerb;
+    }
+  }
+
+  myLatinSentence = new Latin(nouns[ranNounsIndx][0], prepPhrase[ranPrepPhraseIndx][0], verb[ranVerbIndx][0],areas[ranAreasIndx][0],linkingVerb[ranLinkingVerbIndx][0]);
+  myTranslation = new Translation(nouns[ranNounsIndx][1], verb[ranVerbIndx][1], prepPhrase[ranPrepPhraseIndx][1],areas[ranAreasIndx][1],linkingVerb[ranLinkingVerbIndx][1]);
+
+
+movLength = 100/20;
+
+}
+
+*/
+
+// This function restarts the game at the beginning on the click of the BackBox button.
+  function restartGame(){
+
+    //This sets the colors of box 1 for the first game
+      document.getElementById("box1").innerHTML = "Start!"
+      document.getElementById("timer").innerHTML = "Timer"
+      document.getElementById("box1").style.background = "yellow";
+      document.getElementById("box1").style.color = "black";
+      document.getElementById("myBar").style.width = "0";
+      width = 0;
+        score = 1;
+
+  stopTimer();
+    hideDemo();
+    hideDemo2();
+    hideBox2();
+    unHideBox1();
+    hideBackBox();
+    hideAnswer();
+
+   //This activitates box 1 to start the Latin to English game
+   document.getElementById("title").innerHTML = "Randomizer - Verbs for Nerds!";
+    document.getElementById("box1").onclick = function(){startGame()};
+document.getElementById("myBar").innerHTML = "Progess Bar";
+  }
+
+
+
+var count = 0;
+
+
+//resetSentence();
+unHideProgressBar();
+
+
+function hideTimer(){
+  document.getElementById("timer").style.display = "none" ;
+}
+
+function unHideTimer(){
+  document.getElementById("timer").style.display = "block" ;
+}
+
+//hideTimer();
+//hideBackBox();
+
+
+
+function hideBackBox(){
+  document.getElementById("backBox").style.display = "none" ;
+}
+
+function unHideBackBox(){
+  document.getElementById("backBox").style.display = "block" ;
+}
+
+function hideProgressBar(){
+  document.getElementById("myProgress").style.display = "none" ;
+}
+
+function unHideProgressBar(){
+  document.getElementById("myProgress").style.display = "block" ;
+}
+
+
+function hideAnswer(){
+  document.getElementById("myText").style.display = "none" ;
+}
+
+function unHideAnswer(){
+  document.getElementById("myText").style.display = "block" ;
+}
+
+
+
+function hideBox1(){
+  document.getElementById("box1").style.display = "none" ;
+}
+
+function unHideBox1(){
+  document.getElementById("box1").style.display = "block" ;
+}
+
+function hideBox2(){
+  document.getElementById("box2").style.display = "none" ;
+}
+
+function unHideBox2(){
+  document.getElementById("box2").style.display = "block" ;
+}
+
+function hideDemo(){
+  document.getElementById("latin").style.display = "none" ;
+}
+
+function unHideDemo(){
+  document.getElementById("latin").style.display = "block" ;
+}
+function hideDemo2(){
+  document.getElementById("trans").style.display = "none" ;
+}
+
+function unHideDemo2(){
+  document.getElementById("trans").style.display = "block" ;
+}
+
+hideBox2();
+hideDemo();
+hideDemo2();
+hideAnswer();
+hideBackBox();
+hideTimer();
+
+
+function changeBoxColorsOne(){
+
+
+
+  document.getElementById("box2").style.background = "yellow" ;
+  document.getElementById("box2").style.borderColor = "red" ;
+  document.getElementById("latin").style.background= "black" ;
+  document.getElementById("latin").style.borderColor= "white" ;
+}
+
+function changeBoxColorsTwo(){
+
+  document.getElementById("box1").style.background= "yellow" ;
+  document.getElementById("box1").style.borderColor= "black" ;
+
+  document.getElementById("latin").style.background= "black" ;
+  document.getElementById("latin").style.borderColor= "white" ;
+
+  document.getElementById("trans").style.background= "white" ;
+  document.getElementById("trans").style.borderColor= "black" ;
+  document.getElementById("trans").style.color= "black" ;
+}
+
+
+
+
+
+/*
+
+function startGame(){
+
+resetSentence();
+
+if (ranSentenceIndx == 0){
+var latin = myLatinSentence.subject + " " + myLatinSentence.prepPhrase + " " + myLatinSentence.verb;
+} else if (ranSentenceIndx ==1) {
+var latin = myLatinSentence.areas + " " + myLatinSentence.prepPhrase + " " + myLatinSentence.linkingVerb;
+}
+
+
+unHideTimer();
+unHideBackBox();
+countdown = setInterval(countDownTimer,1000);
+
+
+unHideBackBox();
+    hideBox1();
+    unHideBox2();
+    unHideDemo();
+    hideDemo2();
+    //changeBoxColorsOne();
+
+    //This activates the Progress Bar
+  //document.getElementById("myBar").onclick = function(){move()};
+  document.getElementById("box1").innerHTML = "Next!";
+  document.getElementById("box1").style.color = "black";
+
+
+document.getElementById("latin").innerHTML = latin;
+
+
+}
+
+function giveAnswerOne(){
+
+move();
+
+if (ranSentenceIndx == 0){
+  var latinTrans = "The " + myTranslation.subject + " " + myTranslation.verb + " " + myTranslation.prepPhrase;
+} else if (ranSentenceIndx == 1){
+  var latinTrans = "The " + myTranslation.areas + " " + myTranslation.linkingVerb + " " + myTranslation.prepPhrase;
+}
+
+document.getElementById("timer").style.color = "white";
+stopTimer();
+//hideTimer();
+
+  unHideBox1();
+  hideBox2();
+  unHideDemo2();
+  changeBoxColorsTwo();
+
+document.getElementById("trans").innerHTML = latinTrans;
+
+if (count == 20){
+    document.getElementById("latin").innerHTML = "Finis!";
+    document.getElementById("trans").innerHTML = "Let's go again!"
+    document.getElementById("box1").innerHTML = "Start";
+    document.getElementById("box1").style.background = "blue";
+    document.getElementById("box1").style.color = "white";
+    document.getElementById("myBar").style.width =0;
+    count = 0;
+    width = 0;
+    resetSentence();
+}
+count++;
+
+}
+
+*/
+
+
+</script>
+
+</body>
+</html>
